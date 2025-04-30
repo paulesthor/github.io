@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos | Paul Esthor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #4cc9f0;
+            --light: #16213e;
+            --dark: #0f0f1b;
+            --accent: #f72585;
+            --text: #e2e2e2;
+            --bandeau1: #0d1021;  /* Bleu nuit très foncé */
+            --bandeau2: #121734;  /* Bleu marine profond */
+            --bandeau3: #0f142e;  /* Bleu nocturne */
+            --bandeau4: #141a3a;  /* Bleu foncé légèrement saturé */
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        /* Header */
+        header {
+            background-color: rgba(26, 26, 46, 0.9);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Section Hero À propos */
+        .about-hero {
+            padding: 60px 0 40px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--light) 100%);
+        }
+        
+        .about-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        /* Sections alternées */
+        .about-section {
+            display: flex;
+            align-items: center;
+            padding: 80px 0;
+            min-height: 500px;
+        }
+        
+        .about-section:nth-child(odd) {
+            background-color: var(--bandeau1);
+        }
+        
+        .about-section:nth-child(even) {
+            background-color: var(--bandeau2);
+        }
+        
+        .about-section:nth-child(3) {
+            background-color: var(--bandeau3);
+        }
+        
+        .about-section:nth-child(4) {
+            background-color: var(--bandeau4);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            gap: 60px;
+        }
+        
+        .about-section:nth-child(odd) .about-content {
+            flex-direction: row;
+        }
+        
+        .about-section:nth-child(even) .about-content {
+            flex-direction: row-reverse;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h2 {
+            font-size: 2.2rem;
+            color: var(--secondary);
+            margin-bottom: 25px;
+        }
+        
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .about-image {
+            flex: 1;
+            max-width: 450px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column !important;
+                gap: 40px;
+                padding: 0 30px;
+            }
+            
+            .about-image {
+                max-width: 100%;
+            }
+            
+            .about-hero {
+                padding: 150px 0 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .about-section {
+                padding: 60px 0;
+                min-height: auto;
+            }
+            
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-text h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header identique à la page Projets -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="Accueil.html" class="logo">Paul Esthor</a>
+                <div class="nav-links">
+                    <a href="Accueil.html">Accueil</a>
+                    <a href="Apropos.html">À propos</a>
+                    <a href="parcours.html">Mon Parcours</a>
+                    <a href="Projet.html">Projets</a>
+                    <a href="Competences.html">Compétences</a>
+                    <a href="Contact.html">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <!-- Section Hero -->
+        <section class="about-hero">
+            <div class="container">
+                <h1>À propos de moi</h1>
+                <p>Découvrez mon parcours, mes passions et ma vision</p>
+            </div>
+        </section>
+        
+        <!-- Section 1 (gauche) -->
+        <section class="about-section">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Qui suis-je ?</h2>
+                    <p>Bonjour ! Je m'appelle Paul Esthor, j'ai 25 ans et je viens de Poitiers. Actuellement, je poursuis mes études en Science des Données et je m’intéresse particulièrement à la programmation et à l’analyse de données. Dans ce domaine, 
+                       j’ai l’opportunité de développer des compétences essentielles, comme la gestion de bases de données, la modélisation statistique et l’utilisation d’outils de data science.</p>
+                    <p>En dehors de mes études, je suis passionné par le volley-ball, un sport que je pratique régulièrement depuis maintenant 15 ans. J'aime aussi voyager et découvrir de nouvelles cultures, ce qui enrichit mes perspectives et m’aide à 
+                        rester motivé dans mes projets.</p> 
+                    <p>Je suis constamment à la recherche de nouveaux défis et de projets intéressants. N’hésitez pas à explorer mon portfolio pour en savoir plus sur mes réalisations et à me contacter si vous souhaitez échanger !</p>
+                </div>
+                <div class="about-image">
+                    <img src="PhotoApropos/Kid2.jpg" alt="Paul Esthor">
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 2 (droite) -->
+        <section class="about-section">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Mes passions</h2>
+                    <p>En dehors de mes études, le volley-ball occupe une place très importante dans ma vie. J’ai eu la chance de suivre un sport-études au lycée, ce qui m’a permis de combiner ma passion pour le sport avec mon parcours scolaire. Cela m’a appris à être 
+                        discipliné, à gérer mon temps entre les entraînements et les cours, et surtout à toujours donner le meilleur de moi-même, que ce soit sur le terrain ou en dehors. </p>
+                    <p>La musique fait également partie de mes passions, et je m'amuse à jouer du piano. Je suis encore débutant, mais j’aime prendre du temps pour jouer quelques morceaux. C’est une activité que je fais pour le plaisir, sans pression, et ça me 
+                        permet de m’évader un peu après une journée bien remplie.</p>
+                    <p>Voyager, c’est vraiment quelque chose qui me passionne. J’ai eu la chance de partir en Australie pendant six mois en tant qu'Au pair, une expérience qui m’a permis de découvrir une culture totalement différente tout en vivant une aventure au 
+                        bout du monde. Ce séjour m’a permis non seulement de rencontrer des gens formidables, mais aussi d’interagir avec des animaux que je n'avais jamais vus avant, comme les kangourous et les koalas. Après ces six mois, j’ai décidé de rester un 
+                        peu plus longtemps pour explorer l’Australie par mes propres moyens, et j’ai adoré l’idée de me retrouver dans des endroits totalement différents notamment la Tasmanie beaucoup plus rurale.</p>
+                    <p>Ce voyage m’a permis d’apprendre beaucoup sur moi-même, de me confronter à de nouvelles situations et de m’adapter à un mode de vie tout à fait différent. C’est aussi un bon moyen d’ouvrir l’esprit, de prendre du recul sur ce qu’on connaît 
+                        et de s’ouvrir à de nouvelles expériences.</p>
+                </div>
+                <div class="about-image">
+                    <img src="PhotoApropos/Australie.jpg" alt="Mes passions">
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 3 (gauche) -->
+        <section class="about-section">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Mon bilan sur cette première année</h2>
+                    <p>Reprendre les études après avoir travaillé et validé un premier diplôme, ce n’est pas évident. Le rythme est soutenu, surtout au début, et j’ai eu du mal à retrouver une vraie routine. Les mathématiques ont clairement été la matière la plus difficile pour moi, autant sur le fond que sur la méthode. Je n’ai jamais vraiment eu à réviser avant, donc il a fallu apprendre à m’organiser différemment.</p>
+                    <p>Cela dit, j’ai constaté de vrais progrès, surtout en programmation et plus largement en informatique. Je sens que j’ai gagné en logique, en autonomie, et que je suis plus à l’aise pour manipuler les outils qu’on utilise en data science.</p>
+                    <p>L’un des projets que j’ai le plus appréciés cette année, c’est celui sur la démographie française. Il s’agissait d’un rapport statistique dans lequel on devait proposer une stratégie de campagne électorale pour le NFP. C’était concret, stimulant, et j’ai vraiment pris plaisir à croiser données et réflexion politique.</p>
+                    <p>Côté vie étudiante, j’avais un peu d’appréhension au début. J’ai 25 ans, alors que beaucoup d’étudiants sortent tout juste du lycée. Mais finalement, les échanges se sont faits naturellement avec le temps, et aujourd’hui je me sens bien intégré.</p>
+                    <p>Globalement, je suis satisfait de la formation : le contenu est intéressant, les compétences qu’on acquiert sont utiles et bien ancrées dans la réalité professionnelle. Je sais cependant que je ne travaille pas encore assez, et que je dois améliorer mes méthodes pour être pleinement à la hauteur des exigences de la suite. C’est un défi que je suis prêt à relever.</p>
+                </div>
+                
+                <div class="about-image">
+                    <img src="PhotoApropos/alcool.jpg" alt="Mon parcours">
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <script>
+        // Animation du header au scroll (identique à la page Projets)
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Animation des sections
+        const aboutSections = document.querySelectorAll('.about-section');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        aboutSections.forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(50px)';
+            section.style.transition = 'all 0.6s ease-out';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
