@@ -13,10 +13,10 @@
             --dark: #0f0f1b;
             --accent: #f72585;
             --text: #e2e2e2;
-            --bandeau1: #0d1021;  /* Bleu nuit très foncé */
-            --bandeau2: #121734;  /* Bleu marine profond */
-            --bandeau3: #0f142e;  /* Bleu nocturne */
-            --bandeau4: #141a3a;  /* Bleu foncé légèrement saturé */
+            --bandeau1: #0d1021;
+            --bandeau2: #121734;
+            --bandeau3: #0f142e;
+            --bandeau4: #141a3a;
         }
         
         body {
@@ -139,13 +139,14 @@
         
         .about-content {
             display: flex;
-            align-items: center;
-            max-width: 1200px;
+            align-items: flex-start;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 40px;
             gap: 60px;
         }
         
+        /* Styles pour les sections 1 et 2 (alternées) */
         .about-section:nth-child(odd) .about-content {
             flex-direction: row;
         }
@@ -153,7 +154,26 @@
         .about-section:nth-child(even) .about-content {
             flex-direction: row-reverse;
         }
+
+        /* Styles spécifiques pour la TROISIÈME section (Mon bilan) */
+        .about-section:nth-child(3) .about-content {
+            flex-direction: row;
+            gap: 60px;
+        }
+
+        .about-section:nth-child(3) .about-text {
+            flex: 2.5;
+            max-width: 70%;
+        }
+
+        .about-section:nth-child(3) .about-image {
+            flex: 1;
+            max-width: 300px;
+            margin-top: 40px;
+            margin-left: -20px;
+        }
         
+        /* Styles par défaut pour les autres sections */
         .about-text {
             flex: 1;
         }
@@ -176,6 +196,8 @@
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 120px;
         }
         
         .about-image img {
@@ -190,6 +212,12 @@
         }
         
         /* Responsive */
+        @media (max-width: 1200px) {
+            .about-section:nth-child(3) .about-text {
+                max-width: 65%;
+            }
+        }
+        
         @media (max-width: 992px) {
             .about-content {
                 flex-direction: column !important;
@@ -197,7 +225,14 @@
                 padding: 0 30px;
             }
             
+            .about-section:nth-child(3) .about-text,
+            .about-section:nth-child(3) .about-image {
+                max-width: 100%;
+                margin-left: 0;
+            }
+            
             .about-image {
+                position: static;
                 max-width: 100%;
             }
             
@@ -223,7 +258,6 @@
     </style>
 </head>
 <body>
-    <!-- Header identique à la page Projets -->
     <header id="header">
         <div class="container">
             <nav>
@@ -241,7 +275,6 @@
     </header>
     
     <main>
-        <!-- Section Hero -->
         <section class="about-hero">
             <div class="container">
                 <h1>À propos de moi</h1>
@@ -249,73 +282,61 @@
             </div>
         </section>
         
-        <!-- Section 1 (gauche) -->
         <section class="about-section">
             <div class="about-content">
                 <div class="about-text">
                     <h2>Qui suis-je ?</h2>
-                    <p>Bonjour ! Je m'appelle Paul Esthor, j'ai 25 ans et je viens de Poitiers. Actuellement, je poursuis mes études en Science des Données et je m’intéresse particulièrement à la programmation et à l’analyse de données. Dans ce domaine, 
-                       j’ai l’opportunité de développer des compétences essentielles, comme la gestion de bases de données, la modélisation statistique et l’utilisation d’outils de data science.</p>
-                    <p>En dehors de mes études, je suis passionné par le volley-ball, un sport que je pratique régulièrement depuis maintenant 15 ans. J'aime aussi voyager et découvrir de nouvelles cultures, ce qui enrichit mes perspectives et m’aide à 
-                        rester motivé dans mes projets.</p> 
-                    <p>Je suis constamment à la recherche de nouveaux défis et de projets intéressants. N’hésitez pas à explorer mon portfolio pour en savoir plus sur mes réalisations et à me contacter si vous souhaitez échanger !</p>
+                    <p>Bonjour ! Je m'appelle Paul Esthor, j'ai 25 ans et je viens de Poitiers. Actuellement, je poursuis mes études en Science des Données et je m'intéresse particulièrement à la programmation et à l'analyse de données. Dans ce domaine, j'ai l'opportunité de développer des compétences essentielles, comme la gestion de bases de données, la modélisation statistique et l'utilisation d'outils de data science.</p>
+                    <p>En dehors de mes études, je suis passionné par le volley-ball, un sport que je pratique régulièrement depuis maintenant 15 ans. J'aime aussi voyager et découvrir de nouvelles cultures, ce qui enrichit mes perspectives et m'aide à rester motivé dans mes projets.</p>
+                    <p>Je suis constamment à la recherche de nouveaux défis et de projets intéressants. N'hésitez pas à explorer mon portfolio pour en savoir plus sur mes réalisations et à me contacter si vous souhaitez échanger !</p>
                 </div>
                 <div class="about-image">
-                    <img src="PhotoApropos/kid2.jpg" alt="Mes passions">
+                    <img src="PhotoApropos/kid2.jpg" alt="Paul Esthor jeune">
                 </div>
             </div>
         </section>
         
-        <!-- Section 2 (droite) -->
         <section class="about-section">
             <div class="about-content">
                 <div class="about-text">
                     <h2>Mes passions</h2>
-                    <p>En dehors de mes études, le volley-ball occupe une place très importante dans ma vie. J’ai eu la chance de suivre un sport-études au lycée, ce qui m’a permis de combiner ma passion pour le sport avec mon parcours scolaire. Cela m’a appris à être 
-                        discipliné, à gérer mon temps entre les entraînements et les cours, et surtout à toujours donner le meilleur de moi-même, que ce soit sur le terrain ou en dehors. </p>
-                    <p>La musique fait également partie de mes passions, et je m'amuse à jouer du piano. Je suis encore débutant, mais j’aime prendre du temps pour jouer quelques morceaux. C’est une activité que je fais pour le plaisir, sans pression, et ça me 
-                        permet de m’évader un peu après une journée bien remplie.</p>
-                    <p>Voyager, c’est vraiment quelque chose qui me passionne. J’ai eu la chance de partir en Australie pendant six mois en tant qu'Au pair, une expérience qui m’a permis de découvrir une culture totalement différente tout en vivant une aventure au 
-                        bout du monde. Ce séjour m’a permis non seulement de rencontrer des gens formidables, mais aussi d’interagir avec des animaux que je n'avais jamais vus avant, comme les kangourous et les koalas. Après ces six mois, j’ai décidé de rester un 
-                        peu plus longtemps pour explorer l’Australie par mes propres moyens, et j’ai adoré l’idée de me retrouver dans des endroits totalement différents notamment la Tasmanie beaucoup plus rurale.</p>
-                    <p>Ce voyage m’a permis d’apprendre beaucoup sur moi-même, de me confronter à de nouvelles situations et de m’adapter à un mode de vie tout à fait différent. C’est aussi un bon moyen d’ouvrir l’esprit, de prendre du recul sur ce qu’on connaît 
-                        et de s’ouvrir à de nouvelles expériences.</p>
+                    <p>En dehors de mes études, le volley-ball occupe une place très importante dans ma vie. J'ai eu la chance de suivre un sport-études au lycée, ce qui m'a permis de combiner ma passion pour le sport avec mon parcours scolaire. Cela m'a appris à être discipliné, à gérer mon temps entre les entraînements et les cours, et surtout à toujours donner le meilleur de moi-même, que ce soit sur le terrain ou en dehors. </p>
+                    <p>La musique fait également partie de mes passions, et je m'amuse à jouer du piano. Je suis encore débutant, mais j'aime prendre du temps pour jouer quelques morceaux. C'est une activité que je fais pour le plaisir, sans pression, et ça me permet de m'évader un peu après une journée bien remplie.</p>
+                    <p>Voyager, c'est vraiment quelque chose qui me passionne. J'ai eu la chance de partir en Australie pendant six mois en tant qu'Au pair, une expérience qui m'a permis de découvrir une culture totalement différente tout en vivant une aventure au bout du monde. Ce séjour m'a permis non seulement de rencontrer des gens formidables, mais aussi d'interagir avec des animaux que je n'avais jamais vus avant, comme les kangourous et les koalas. Après ces six mois, j'ai décidé de rester un peu plus longtemps pour explorer l'Australie par mes propres moyens, et j'ai adoré l'idée de me retrouver dans des endroits totalement différents notamment la Tasmanie beaucoup plus rurale.</p>
+                    <p>Ce voyage m'a permis d'apprendre beaucoup sur moi-même, de me confronter à de nouvelles situations et de m'adapter à un mode de vie tout à fait différent. C'est aussi un bon moyen d'ouvrir l'esprit, de prendre du recul sur ce qu'on connaît et de s'ouvrir à de nouvelles expériences.</p>
                 </div>
                 <div class="about-image">
-                    <img src="PhotoApropos/Australie.jpg" alt="Mes passions">
+                    <img src="PhotoApropos/Australie.jpg" alt="Paul en Australie">
                 </div>
             </div>
         </section>
         
-        <!-- Section 3 (gauche) -->
         <section class="about-section">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>Mon bilan sur cette première année</h2>
-                    <p>Reprendre les études après avoir travaillé et validé un premier diplôme, ce n’est pas évident. Le rythme est soutenu, surtout au début, et j’ai eu du mal à retrouver une vraie routine. Entre les cours, les devoirs et les projets, j’ai dû réapprendre à organiser mes journées et à trouver un équilibre. Les mathématiques ont clairement été la matière la plus difficile pour moi, autant sur le fond que sur la méthode. Je n’ai jamais vraiment eu à réviser avant, donc il a fallu apprendre à m’organiser différemment. C’était frustrant au début, mais à force de persévérance, j’ai compris qu’il fallait que je travaille régulièrement, que je relise mes notes, que je refasse les exercices et que je demande de l’aide quand je bloquais.
+                    <h2>Mon bilan sur cette première année en Science des Données</h2>
+                    <p>Reprendre les études après avoir travaillé et validé un premier diplôme, ce n'est pas évident. Le rythme est soutenu, surtout au début, et j'ai eu du mal à retrouver une vraie routine. Entre les cours, les projets, et les devoirs, il m'a fallu du temps pour m'adapter et retrouver un équilibre. Les mathématiques ont clairement été la matière la plus difficile, autant sur le fond que sur la méthode. Avant, je n'avais jamais vraiment eu à réviser : il a donc fallu apprendre à m'organiser autrement, revoir mes notes régulièrement, refaire les exercices et chercher à comprendre en profondeur.</p>
 
-Cela dit, j’ai constaté de vrais progrès, surtout en programmation et plus largement en informatique. Je sens que j’ai gagné en logique, en autonomie, et que je suis plus à l’aise pour manipuler les outils qu’on utilise en data science. Python, SQL, les logiciels comme Power BI ou Excel avancé, tout cela me semblait flou au départ, mais à force de pratique, ça devient plus naturel. J’ai compris l’importance de bien structurer mes fichiers, de faire attention à la qualité des données et de toujours chercher à optimiser mes solutions.
+                    <p>En revanche, j'ai vu de vrais progrès en informatique et en programmation. J'ai gagné en logique et en autonomie, et je suis plus à l'aise avec les outils qu'on utilise en data science. Python, SQL, Power BI… au début, tout cela était nouveau pour moi, mais à force de pratique, c'est devenu plus naturel. J'ai appris à structurer mes projets, à faire attention aux détails et à garder une approche rigoureuse.</p>
 
-L’un des projets que j’ai le plus appréciés cette année, c’est celui sur la démographie française. Il s’agissait d’un rapport statistique dans lequel on devait proposer une stratégie de campagne électorale pour le NFP. C’était concret, stimulant, et j’ai vraiment pris plaisir à croiser données et réflexion politique. Ce projet m’a permis de mettre en pratique tout ce qu’on avait vu en cours : analyses descriptives, visualisation de données, calculs statistiques, mais aussi une vraie réflexion sur les enjeux sociaux et démographiques. Ça m’a donné envie d’aller plus loin et de m’intéresser à l’impact des données sur la prise de décision.
+                    <p>Un projet m'a particulièrement marqué cette année : celui sur la démographie française. On devait réaliser un rapport statistique et proposer une stratégie de campagne électorale pour le NFP. Ce projet m'a permis de croiser des données et de réfléchir à leur interprétation dans un contexte concret. J'ai aimé analyser les chiffres, en tirer des tendances et imaginer des solutions adaptées. Ce type de projet donne du sens aux notions apprises et montre l'importance des données dans la prise de décision.</p>
 
-Côté vie étudiante, j’avais un peu d’appréhension au début. J’ai 25 ans, alors que beaucoup d’étudiants sortent tout juste du lycée. J’avais peur de me sentir à part, de ne pas m’intégrer. Mais finalement, les échanges se sont faits naturellement avec le temps, et aujourd’hui je me sens bien intégré. J’ai rencontré des personnes avec des parcours variés, on a appris à travailler ensemble, à se soutenir dans les moments de stress, et à partager des moments plus légers en dehors des cours. Ces rencontres m’ont permis de me sentir à ma place et d’enrichir ma vision des choses.
+                    <p>Côté vie étudiante, j'avais quelques craintes en début d'année. J'ai 25 ans, alors que beaucoup de mes camarades sortent tout juste du lycée. J'avais peur de ne pas trouver ma place. Mais finalement, les échanges se sont faits naturellement. On a appris à travailler ensemble, à partager nos expériences et à nous entraider. Aujourd'hui, je me sens bien intégré et à l'aise dans cette ambiance.</p>
 
-Globalement, je suis satisfait de la formation. Le contenu est intéressant, les compétences qu’on acquiert sont utiles et bien ancrées dans la réalité professionnelle. J’ai l’impression d’apprendre des choses concrètes, qui me serviront plus tard dans mon métier. J’ai aussi compris que le monde de la data est vaste et en constante évolution, et qu’il faut rester curieux et continuer à se former tout au long de sa carrière. Cette première année m’a donné un bon aperçu de ce qui m’attend, et même si je sais que je dois encore m’améliorer, je me sens plus confiant.
+                    <p>Globalement, je suis satisfait de la formation. Le contenu est intéressant et les compétences qu'on acquiert sont concrètes et utiles. J'ai compris que le monde de la data est en constante évolution et qu'il faudra toujours continuer à apprendre. Cette première année m'a permis de poser des bases solides et de comprendre l'importance de rester curieux et rigoureux.</p>
 
-Je sais cependant que je ne travaille pas encore assez, et que je dois améliorer mes méthodes pour être pleinement à la hauteur des exigences de la suite. J’ai encore du mal à me mettre au travail quand je n’ai pas de deadline proche, et il faut que je prenne l’habitude de travailler un peu chaque jour, même sans pression. Mais c’est un défi que je suis prêt à relever. J’ai envie de progresser, d’approfondir mes connaissances, et de devenir vraiment à l’aise avec toutes les notions abordées.
+                    <p>Mais je sais aussi que je dois encore progresser. Mon rythme de travail n'est pas suffisant, et j'ai parfois tendance à me reposer sur mes acquis. Il faut que je m'habitue à travailler régulièrement, même sans échéance proche, et que j'ose demander de l'aide quand je bloque. C'est un défi, mais je suis motivé à le relever.</p>
 
-En prenant du recul, je me rends compte que cette première année m’a permis de me remettre en question et de me redécouvrir. Elle m’a montré que je pouvais relever des défis, même quand c’était compliqué. Elle m’a aussi donné envie de continuer sur cette voie, de m’investir davantage et d’aller chercher les compétences qui me manquent encore. Cette année n’aura été qu’un début, et je suis prêt à donner le meilleur de moi-même pour la suite.
-                
+                    <p>En prenant du recul, je me rends compte que cette année m'a permis de me redécouvrir. Elle m'a montré que je pouvais relever des défis, même quand c'était difficile. Elle m'a donné envie d'aller plus loin, de progresser, et de devenir plus confiant dans mes compétences. Cette première année n'est qu'un début, et je suis prêt à continuer sur cette voie.</p>
+                </div>
                 <div class="about-image">
                     <img src="PhotoApropos/ONU2.jpg" alt="Mon parcours">
                 </div>
             </div>
         </section>
-        
     </main>
 
     <script>
-        // Animation du header au scroll (identique à la page Projets)
         window.addEventListener('scroll', function() {
             const header = document.getElementById('header');
             if (window.scrollY > 50) {
@@ -325,7 +346,6 @@ En prenant du recul, je me rends compte que cette première année m’a permis 
             }
         });
         
-        // Animation des sections
         const aboutSections = document.querySelectorAll('.about-section');
         
         const observer = new IntersectionObserver((entries) => {
