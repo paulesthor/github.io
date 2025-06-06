@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets | Esthor Paul</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #4cc9f0;
+            --light: #16213e;
+            --dark: #0f0f1b;
+            --accent: #f72585;
+            --text: #e2e2e2;
+        }
+        .logo {
+            text-decoration: none;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        /* Header */
+        header {
+            background-color: rgba(26, 26, 46, 0.9);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Section Projets */
+        .projects-hero {
+            padding: 50px 0 10px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--light) 100%);
+        }
+        
+        .projects-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .projects-hero p {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+        }
+        
+        /* Grille de projets */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px 0;
+        }
+        
+        .project-card {
+            background-color: rgba(26, 26, 46, 0.7);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(76, 201, 240, 0.1);
+            text-decoration: none;
+            color: var(--text);
+            display: block;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            border-color: rgba(76, 201, 240, 0.3);
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .project-info {
+            padding: 20px;
+        }
+        
+        .project-info h3 {
+            margin-top: 0;
+            color: var(--secondary);
+            font-size: 1.3rem;
+        }
+        
+        .project-info p {
+            margin-bottom: 0;
+            opacity: 0.9;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .projects-hero {
+                padding: 150px 0 50px;
+            }
+            
+            .projects-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <div class="logo">Paul Esthor</div>
+                <div class="nav-links">
+                    <a href="index.html">Accueil</a>
+                    <a href="Apropos.html">À propos</a>
+                    <a href="parcours.html">Mon Parcours</a>
+                    <a href="Projet.html">Projets</a>
+                    <a href="Competences.html">Compétences</a>
+                    <a href="Contact.html">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <!-- Section Hero Projets -->
+        <section class="projects-hero">
+            <div class="container">
+                <h1>Mes Projets</h1>
+                <p>Découvrez mes réalisations en science des données et développement</p>
+            </div>
+        </section>
+        
+        <!-- Grille de projets -->
+        <div class="container">
+            <div class="projects-grid">
+                <!-- Projet 1 -->
+                <a href="projet1.html" class="project-card">
+                    <img src="Photo Projet/reporting.jpg" alt="Analyse de données sportives" class="project-image">
+                    <div class="project-info">
+                        <h3>Création d'un reporting sur Excel et VBA</h3>
+                        <p>Visualisation et modification de note afin d'avoir un résumé final sur l'année.</p>
+                    </div>
+                </a>
+                
+                <!-- Projet 2 -->
+                <a href="projet2.html" class="project-card">
+                    <img src="Photo Projet/BaseDonnée.jpg" alt="Système de recommandation" class="project-image">
+                    <div class="project-info">
+                        <h3>Création d'une base de donnée en Python et EasyPhp</h3>
+                        <p>Conception d'une base de données sur mesure pour une entreprise fictive, de la modélisation à la création</p>
+                    </div>
+                </a>
+                
+                <!-- Projet 3 -->
+                <a href="projet3.html" class="project-card">
+                    <img src="Photo Projet/Territoire.jpg" alt="Classification d'images" class="project-image">
+                    <div class="project-info">
+                        <h3>Présentation bilingue d'une ville olympique</h3>
+                        <p>Réalisation d'un diaporama en français et en anglais pour présenter une ville hôte des Jeux Olympiques.</p>
+                    </div>
+                </a>
+                
+                <!-- Projet 4 -->
+                <a href="projet4.html" class="project-card">
+                    <img src="Photo Projet/Stat.jpg" alt="Analyse de sentiments" class="project-image">
+                    <div class="project-info">
+                        <h3>Analyse statistique sur la démographie francaise </h3>
+                        <p>Réalisation d'un rapport statistique portant sur le chômage et la CSP des francais dans un département précis.</p>
+                    </div>
+                </a>
+                
+                <!-- Projet 5 -->
+                <a href="projet5.html" class="project-card">
+                    <img src="Photo Projet/Portfolio.jpg" alt="Détection de fraudes" class="project-image">
+                    <div class="project-info">
+                        <h3>Création d'un site en HTML et CSS</h3>
+                        <p>Apprentissage automatique sur transactions</p>
+                    </div>
+                </a>
+                
+                <!-- Projet 6 -->
+                <a href="projet6.html" class="project-card">
+                    <img src="Photo Projet/RegLine.jpg" alt="Visualisation géospatiale" class="project-image">
+                    <div class="project-info">
+                        <h3>Modèle de régression linéaire</h3>
+                        <p>Réalisation d'une régression linéaire afin de prédire les prix de l'immobilier dans les deux-sèvres.</p>
+                    </div>
+                </a>
+                
+                <!-- Projet 7 -->
+                <a href="projet7.html" class="project-card">
+                    <img src="Photo Projet/estimation.png" alt="Optimisation de parcours" class="project-image">
+                    <div class="project-info">
+                        <h3>Echantillonnage et Estimation </h3>
+                        <p>Programmation en R afin d'estimer le nombre d'habitant d'une région à partir d'un échantillon.</p>
+                    </div>
+                </a>
+                
+                <!-- Projet 8 -->
+                <a href="projet8.html" class="project-card">
+                    <img src="Photo Projet/perf.png" alt="Prédiction de séries temporelles" class="project-image">
+                    <div class="project-info">
+                        <h3>Indicateur de performance</h3>
+                        <p>Réalisation d'un rapport sur power Bi pour présenter des chiffre clés.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Animation du header au scroll
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Animation des cartes au chargement
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        projectCards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = `all 0.5s ease ${index * 0.1}s`;
+            
+            setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
